@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CureNest - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+        
+        body {
+            font-family: "Funnel Display", serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            color: #21546f;
+        }
+
+        header {
+            background-color: #0b71ba;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        nav ul{
+            display: flex;
+            align-items: end;
+          }
+          nav ul li{
+            list-style-type: none;
+          }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color:#bee6ff;
+            color: #21546f;
+        }
+
+        nav a.active {
+            background-color: #bee6ff;
+            color: #21546f;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+       
+            form {
+                font-size: 20px;
+                width: 350px;
+                background-color: #f9f9f9;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CureNest</h1>
+    </header>
+    <nav><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li> <a href="contact.html">Contact Us</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="#" class="active">Login</a></li>
+        
+       
+        
+        
+    </ul>
+    </nav>
+    <main>
+        
+        <div class="container">
+            <h1>Login</h1>
+            <form id="login-form" method="POST" action="login.php">
+                <label for="username">Username or Email:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Login</button>
+            </form>
+            <?php if (isset($_GET['message'])): ?>
+                <p class="message"><?php echo htmlspecialchars($_GET['message']); ?></p>
+            <?php endif; ?>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+        
+    </main>
+    <script>
+        // Check for messages passed via URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+            alert(decodeURIComponent(message));
+        }
+    </script>
+</html>
